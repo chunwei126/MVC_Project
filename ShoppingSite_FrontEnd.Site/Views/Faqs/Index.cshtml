@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ShoppingSite_FrontEnd.Site.Models.EFModels.Faq>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .faqList {
+        list-style-type: none;
+    }
+    .faqItem {
+        margin-bottom: 30px;
+    }
+</style>
+
+
+<ul class="faqList">
+    <h2>常見問題</h2>
+@foreach (var item in Model)
+{
+    <div class="faqItem">
+        <li>@Html.DisplayFor(modelItem => item.Question)</li>
+        <li>@Html.DisplayFor(modelItem => item.Answer)</li>
+    </div>
+}
+</ul>
+
