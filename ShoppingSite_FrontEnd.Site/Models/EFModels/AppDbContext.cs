@@ -21,7 +21,6 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
 		public virtual DbSet<OrderItem> OrderItems { get; set; }
 		public virtual DbSet<Order> Orders { get; set; }
 		public virtual DbSet<Product> Products { get; set; }
-		public virtual DbSet<SignUp> SignUps { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -64,5 +63,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
 					.WithRequired(e => e.Product)
 					.WillCascadeOnDelete(false);
 		}
+
+		public System.Data.Entity.DbSet<ShoppingSite_FrontEnd.Site.Models.ViewModels.RegisterVM> RegisterVMs { get; set; }
 	}
 }
