@@ -49,9 +49,11 @@
 						3.
 						4.
 	[v] [0/1] 登入功能
-						1.寫 MemberRepository Load (查詢是否驗證過用)
-						2.寫 MemberController logIn (登入用)
+						1.寫 MemberController logIn (登入用)
+						2.寫 MemberRepository Load (查詢是否驗證過用 => 給登入用)
 						3.寫 MemberController ProcessLogin (登入cookie用)
+
+						* 如果密碼錯，但是帳號還沒開通，會跳出帳號會開通訊息，把這個bug改成依然跳出帳密錯誤，如果帳密都對的話，再去驗證是否開通過
 	[v] [0/1] 登出功能 
 						1.寫 MemberController logOut (登出用)
 	

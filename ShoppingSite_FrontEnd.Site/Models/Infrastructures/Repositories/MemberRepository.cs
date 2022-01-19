@@ -1,6 +1,7 @@
 ﻿using ShoppingSite_FrontEnd.Site.Models.Core.Interfaces;
 using ShoppingSite_FrontEnd.Site.Models.EFModels;
 using ShoppingSite_FrontEnd.Site.Models.Entities;
+using ShoppingSite_FrontEnd.Site.Models.Infrastructures.ExtMethods;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,5 +48,15 @@ namespace ShoppingSite_FrontEnd.Site.Models.Infrastructures.Repositories
 			_db.Members.Add(member);
 			_db.SaveChanges();
 		}
+
+		/// <summary>
+		/// 透過帳號來比對資料庫裡是否有對應的會員紀錄
+		/// </summary>
+		/// <param name="account"></param>
+		/// <returns></returns>
+		public MemberEntity Load(string account)
+			=> _db.Members
+				.SingleOrDefault(x => x.Account == account)
+				.ToMemberEntity();
 	}
 }

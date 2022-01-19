@@ -152,6 +152,7 @@
     <Compile Include="Models\Core\Interfaces\IMemberRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IMemberService.cs" />
     <Compile Include="Models\Core\Services\MemberService.cs" />
+    <Compile Include="Models\Dtos\LoginResponse.cs" />
     <Compile Include="Models\Dtos\RegisterRequest.cs" />
     <Compile Include="Models\Dtos\RegisterResponse.cs" />
     <Compile Include="Models\EFModels\AppDbContext.cs" />
@@ -166,12 +167,14 @@
     <Compile Include="Models\EFModels\Product.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\MemberEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\MemberEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\RegisterRequestExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\RegisterVMExts.cs" />
     <Compile Include="Models\Infrastructures\Repositories\MemberRepository.cs" />
     <Compile Include="Models\UseCases\MemberCommand.cs" />
     <Compile Include="Models\ValueObjects\RegisterResponseData.cs" />
+    <Compile Include="Models\ViewModels\LoginVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,11 +218,11 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Members\RegisterConfirm.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
+    <Content Include="Views\Members\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assest\" />
-    <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -12,5 +12,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.Core.Interfaces
 		bool IsExist(string account);
 
 		void Create(MemberEntity entity);
+
+		MemberEntity Load(string account);
 	}
 }

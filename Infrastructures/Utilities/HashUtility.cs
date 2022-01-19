@@ -11,7 +11,8 @@ namespace Infrastructures.Utilities
 	{
 		public static string ToSHA256(string plainText, string salt)
 		{
-			// ref https://docs.microsoft.com/zh-tw/dotnet/api/system.security.cryptography.sha256?view=net-6.0
+			// 參考 https://docs.microsoft.com/zh-tw/dotnet/api/system.security.cryptography.sha256?view=net-6.0
+
 			using (SHA256 mySHA256 = SHA256.Create())
 			{
 				var passwordBytes = Encoding.UTF8.GetBytes(salt + plainText);

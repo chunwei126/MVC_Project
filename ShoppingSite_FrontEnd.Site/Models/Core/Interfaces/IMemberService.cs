@@ -10,5 +10,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.Core.Interfaces
 	public interface IMemberService
 	{
 		RegisterResponse CreateNewMember(RegisterRequest request);
+
+		LoginResponse Login(string account, string password);
 	}
 }
