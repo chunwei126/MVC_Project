@@ -1,58 +1,164 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+
+  <link rel="stylesheet" href="~/Content/layout.css">
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    @{
-                        if (User.Identity.IsAuthenticated)
-                        {
-                            <li>@Html.ActionLink("登出", "Logout", "Members")</li>
-                            <li><a href="/Members/Index/">Hi! @(User.Identity.Name)</a></li>
-                            <li>@Html.ActionLink("購物車", "Info", "Cart")</li>
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("登入", "Login", "Members")</li>
-                        }
-                    }
-                </ul>
-            </div>
+  <section class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-12 col-sm-4">
+          <div class="contact-number">
+            <i class="tf-ion-ios-telephone"></i>
+            <span>0129- 12323-123123</span>
+          </div>
         </div>
+        <div class="col-md-4 col-xs-12 col-sm-4">
+          <!-- Site Logo -->
+          <div class="logo text-center">
+            <a href="javascript:;">
+              <!-- replace logo here -->
+              <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                   xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
+                   font-family="AustinBold, Austin" font-weight="bold">
+                  <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+                    <text id="AVIATO">
+                      <tspan x="108.94" y="325">@Html.ActionLink("帥哥美女購物網", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</tspan>
+                    </text>
+                  </g>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-4">
+          <ul class="top-menu text-right list-inline">
+            @{
+              if (User.Identity.IsAuthenticated)
+              {
+                <li>@Html.ActionLink("登出", "Logout", "Members")</li>
+                <li><a href="/Members/Index/">Hi! @(User.Identity.Name)</a></li>
+                <li>@Html.ActionLink("購物車", "Info", "Cart")</li>
+              }
+              else
+              {
+                <li>@Html.ActionLink("登入", "Login", "Members")</li>
+              }
+            }
+          </ul><!-- / .nav .navbar-nav .navbar-right -->
+        </div>
+      </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
-        </footer>
-    </div>
+  </section><!-- End Top Header Bar -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+  <section class="menu">
+    <nav class="navbar navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <h2 class="menu-title">Main Menu</h2>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse text-center">
+          <ul class="nav navbar-nav">
+            @*<li>
+      <a href="https://localhost:44319/Home/Index">首頁</a>
+    </li>
+    <li>
+      <a href="https://localhost:44319/Faqs/Index">商品</a>
+    </li>
+    <li>
+      <a href="https://localhost:44319/Faqs/Index">聯絡我們</a>
+    </li>
+    <li>
+      <a href="https://localhost:44319/Faqs/Index">常見問題</a>
+    </li>*@
+            <li>
+              @Html.ActionLink("首頁", "Index", "Home")
+            </li>
+            <li>
+              @Html.ActionLink("商品", "Index", "Product")
+            </li>
+            <li>
+              @Html.ActionLink("聯絡我們", "Create", "Contact")
+            </li>
+            <li>
+              @Html.ActionLink("常見問題", "Index", "Faqs")
+            </li>
+            <li>
+              @Html.ActionLink("最新消息", "Index", "News")
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+
+
+
+
+  @*<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li>@Html.ActionLink("Home", "Index", "Home")</li>
+          <li>@Html.ActionLink("關於", "About", "Home")</li>
+          <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          @{
+            if (User.Identity.IsAuthenticated)
+            {
+              <li>@Html.ActionLink("登出", "Logout", "Members")</li>
+              <li><a href="/Members/Index/">Hi! @(User.Identity.Name)</a></li>
+              <li>@Html.ActionLink("購物車", "Info", "Cart")</li>
+            }
+            else
+            {
+              <li>@Html.ActionLink("登入", "Login", "Members")</li>
+            }
+          }
+        </ul>
+      </div>
+    </div>
+  </div>*@
+
+
+  <div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+      <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+    </footer>
+  </div>
+
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
+  @RenderSection("scripts", required: false)
 </body>
 </html>

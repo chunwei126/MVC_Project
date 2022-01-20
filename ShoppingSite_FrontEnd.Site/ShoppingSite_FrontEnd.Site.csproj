@@ -146,12 +146,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Core\Interfaces\IMemberRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IMemberService.cs" />
+    <Compile Include="Models\Core\Interfaces\IProductRepository.cs" />
     <Compile Include="Models\Core\Services\MemberService.cs" />
+    <Compile Include="Models\Core\Services\ProductService.cs" />
     <Compile Include="Models\Dtos\LoginResponse.cs" />
     <Compile Include="Models\Dtos\RegisterRequest.cs" />
     <Compile Include="Models\Dtos\RegisterResponse.cs" />
@@ -165,16 +168,23 @@
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
+    <Compile Include="Models\Entities\CategoryEntity.cs" />
     <Compile Include="Models\Entities\MemberEntity.cs" />
+    <Compile Include="Models\Entities\ProductEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\CategoryEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\MemberEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\MemberEntityExts.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\ProductEFMExts.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\ProductEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\RegisterRequestExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\RegisterVMExts.cs" />
     <Compile Include="Models\Infrastructures\Repositories\MemberRepository.cs" />
+    <Compile Include="Models\Infrastructures\Repositories\ProductRepository.cs" />
     <Compile Include="Models\UseCases\MemberCommand.cs" />
     <Compile Include="Models\ValueObjects\RegisterResponseData.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
+    <Compile Include="Models\ViewModels\ProductVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -183,6 +193,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -219,6 +230,7 @@
     <Content Include="Views\Members\RegisterConfirm.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
