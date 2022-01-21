@@ -25,5 +25,12 @@ namespace ShoppingSite_FrontEnd.Site.Models.Infrastructures.ExtMethods
 				ConfirmCode = source.ConfirmCode
 			};
 		}
+
+		public static CustomerEntity ToCustomerEntity(this Member source)
+			=> new CustomerEntity 
+			{ 
+				Id = source.Id, 
+				CustomerAccount = source.Account 
+			};
 	}
 }

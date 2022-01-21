@@ -104,8 +104,7 @@ namespace ShoppingSite_FrontEnd.Site.Controllers
 			cookie = new HttpCookie(FormsAuthentication.FormsCookieName, value);
 
 			// 取得return url
-			string url = FormsAuthentication.GetRedirectUrl(roles, true); //第二個引數沒有用處 // account
-
+			string url = FormsAuthentication.GetRedirectUrl(account, true); //第二個引數沒有用處 // account
 			return url;
 		}
 

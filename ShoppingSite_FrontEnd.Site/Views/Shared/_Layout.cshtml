@@ -7,158 +7,119 @@
   <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
   @Styles.Render("~/Content/css")
   @Scripts.Render("~/bundles/modernizr")
-
-  <link rel="stylesheet" href="~/Content/layout.css">
-
+  <link href="~/Content/bootstrap.css" rel="stylesheet" />
+  <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+  <link href="~/Content/bootstrappage.css" rel="stylesheet" />
+  <link href="~/Content/flexslider.css" rel="stylesheet" />
+  <link href="~/Content/main.css" rel="stylesheet" />
 </head>
 <body>
-  <section class="top-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-xs-12 col-sm-4">
-          <div class="contact-number">
-            <i class="tf-ion-ios-telephone"></i>
-            <span>0129- 12323-123123</span>
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-12 col-sm-4">
-          <!-- Site Logo -->
-          <div class="logo text-center">
-            <a href="javascript:;">
-              <!-- replace logo here -->
-              <svg width="135px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                   xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40"
-                   font-family="AustinBold, Austin" font-weight="bold">
-                  <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
-                    <text id="AVIATO">
-                      <tspan x="108.94" y="325">@Html.ActionLink("帥哥美女購物網", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</tspan>
-                    </text>
-                  </g>
-                </g>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-12 col-sm-4">
-          <ul class="top-menu text-right list-inline">
+  <div id="top-bar" class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="account pull-right">
+          <ul class="user-menu">
+            <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+            <li>@Html.ActionLink("最新消息", "Index", "News")</li>
+            <li>@Html.ActionLink("常見問題", "Index", "Faqs")</li>
             @{
               if (User.Identity.IsAuthenticated)
               {
-                <li>@Html.ActionLink("登出", "Logout", "Members")</li>
                 <li><a href="/Members/Index/">Hi! @(User.Identity.Name)</a></li>
-                <li>@Html.ActionLink("購物車", "Info", "Cart")</li>
+                <li>@Html.ActionLink("登出", "Logout", "Members")</li>
+                <li><a href="/Cart/Info/"><i class="fas fa-shopping-cart"></i>購物車</a></li>
               }
               else
               {
                 <li>@Html.ActionLink("登入", "Login", "Members")</li>
+                <li>@Html.ActionLink("註冊", "Register", "Members")</li>
               }
             }
-          </ul><!-- / .nav .navbar-nav .navbar-right -->
-        </div>
-      </div>
-    </div>
-  </section><!-- End Top Header Bar -->
-
-  <section class="menu">
-    <nav class="navbar navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <h2 class="menu-title">Main Menu</h2>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                  aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-
-        <div id="navbar" class="navbar-collapse collapse text-center">
-          <ul class="nav navbar-nav">
-            @*<li>
-      <a href="https://localhost:44319/Home/Index">首頁</a>
-    </li>
-    <li>
-      <a href="https://localhost:44319/Faqs/Index">商品</a>
-    </li>
-    <li>
-      <a href="https://localhost:44319/Faqs/Index">聯絡我們</a>
-    </li>
-    <li>
-      <a href="https://localhost:44319/Faqs/Index">常見問題</a>
-    </li>*@
-            <li>
-              @Html.ActionLink("首頁", "Index", "Home")
-            </li>
-            <li>
-              @Html.ActionLink("商品", "Index", "Product")
-            </li>
-            <li>
-              @Html.ActionLink("聯絡我們", "Create", "Contact")
-            </li>
-            <li>
-              @Html.ActionLink("常見問題", "Index", "Faqs")
-            </li>
-            <li>
-              @Html.ActionLink("最新消息", "Index", "News")
-            </li>
           </ul>
         </div>
       </div>
-    </nav>
-  </section>
-
-
-
-
-
-  @*<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li>@Html.ActionLink("Home", "Index", "Home")</li>
-          <li>@Html.ActionLink("關於", "About", "Home")</li>
-          <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          @{
-            if (User.Identity.IsAuthenticated)
-            {
-              <li>@Html.ActionLink("登出", "Logout", "Members")</li>
-              <li><a href="/Members/Index/">Hi! @(User.Identity.Name)</a></li>
-              <li>@Html.ActionLink("購物車", "Info", "Cart")</li>
-            }
-            else
-            {
-              <li>@Html.ActionLink("登入", "Login", "Members")</li>
-            }
-          }
-        </ul>
-      </div>
     </div>
-  </div>*@
+  </div>
+  <div id="wrapper" class="container">
+    <section class="navbar main-menu">
+      <div class="navbar-inner main-menu">
+        <a href="index.html" class="logo pull-left"><img src="~/Assest/logo.png" class="site_logo" alt=""></a>
+        <nav id="menu" class="pull-right">
+          <ul>
+            <li>@Html.ActionLink("所有商品", "Index", "Product")</li>
+            <li><a href="./products.html">餅乾</a></li>
+            <li><a href="./products.html">糖果</a></li>
+            <li><a href="./products.html">泡麵</a></li>
+            <li><a href="./products.html">非酒精飲料</a></li>
+            <li><a href="./products.html">酒精飲料</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
 
-
-  <div class="container body-content">
     @RenderBody()
-    <hr />
-    <footer>
-      <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
-    </footer>
+
+    <section id="footer-bar">
+      <div class="row">
+        <div class="span3">
+          <h4>Navigation</h4>
+          <ul class="nav">
+            <li><a href="./index.html">Homepage</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contac Us</a></li>
+            <li><a href="./cart.html">Your Cart</a></li>
+            <li><a href="./register.html">Login</a></li>
+          </ul>
+        </div>
+        <div class="span4">
+          <h4>My Account</h4>
+          <ul class="nav">
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Order History</a></li>
+            <li><a href="#">Wish List</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+        <div class="span5">
+          <p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+          <br />
+          <span class="social_icons">
+            <a class="facebook" href="#">Facebook</a>
+            <a class="twitter" href="#">Twitter</a>
+            <a class="skype" href="#">Skype</a>
+            <a class="vimeo" href="#">Vimeo</a>
+          </span>
+        </div>
+      </div>
+    </section>
+    <section id="copyright">
+      <span>Copyright 2013 bootstrappage template  All right reserved.</span>
+    </section>
   </div>
 
   @Scripts.Render("~/bundles/jquery")
   @Scripts.Render("~/bundles/bootstrap")
   @RenderSection("scripts", required: false)
+  <script src="~/Scripts/bootstrap.js"></script>
+  <script src="~/Scripts/jquery.fancybox.js"></script>
+  <script src="~/Scripts/jquery.scrolltotop.js"></script>
+  <script src="~/Scripts/superfish.js"></script>
+  <script src="~/Scripts/common.js"></script>
+  <script src="~/Scripts/jquery.flexslider-min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $(document).ready(function () {
+        $('.flexslider').flexslider({
+          animation: "fade",
+          slideshowSpeed: 4000,
+          animationSpeed: 600,
+          controlNav: false,
+          directionNav: true,
+          controlsContainer: ".flex-container" // the container that holds the flexslider
+        });
+      });
+    });
+  </script>
 </body>
 </html>

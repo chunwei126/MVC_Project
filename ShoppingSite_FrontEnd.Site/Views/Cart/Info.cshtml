@@ -1,0 +1,117 @@
+﻿@model ShoppingSite_FrontEnd.Site.Models.Entities.CartEntity
+
+@{
+  ViewBag.Title = "Info";
+}
+
+<style>
+  .total {
+    display: flex;
+    align-content: center;
+  }
+
+    .total h4 {
+      margin-top: 5px;
+    }
+
+    .total p {
+      padding: 0 20px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+</style>
+
+<h2>Info</h2>
+
+<table class="table">
+  <tr>
+    <th>
+      商品
+    </th>
+    <th>
+      數量
+    </th>
+    <th>
+      小計
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model.GetItems())
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Product.Name)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Qty)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.SubTotal)
+      </td>
+      <td>
+        <button class="btn btn-sm btn-danger delQty glyphicon-minus" data-id="@item.Product.Id" data-qty="@item.Qty"></button>
+        <button class="btn btn-sm btn-success addQty glyphicon-plus" data-id="@item.Product.Id" data-qty="@item.Qty"></button>
+      </td>
+    </tr>
+  }
+
+</table>
+
+
+<div class="total">
+  <h4>Total:</h4>
+  <p><span class="glyphicon glyphicon-usd"></span>@Model.Total.ToString("#,#")</p>
+
+  @if (Model.AllowCheckOut)
+  {
+    <div class="checkout">
+      <a href="/Cart/Checkout/" class="btn btn-primary">結帳</a>
+    </div>
+  }
+</div>
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+  <script>
+    $(document).ready(function () {
+      $(".addQty").each(function () {
+        $(this).on("click", function () {
+          var self = $(this);
+          var productId = self.attr("data-id")
+
+          var qty = self.attr("data-qty");
+          qty = parseInt(qty) + 1;
+
+          console.log(qty)
+
+          // ajax 送出 request
+          $.get("/Cart/UpdateItem?productId=" + productId + "&Qty=" + qty, null, function (result) {
+            location.reload();
+          })
+        })
+      })
+    })
+
+    $(document).ready(function () {
+      $(".delQty").each(function () {
+        $(this).on("click", function () {
+          var self = $(this);
+          var productId = self.attr("data-id")
+
+          var qty = self.attr("data-qty");
+          qty = parseInt(qty) - 1;
+
+          console.log(qty)
+
+          // ajax 送出 request
+          $.get("/Cart/UpdateItem?productId=" + productId + "&Qty=" + qty, null, function (result) {
+            location.reload();
+          })
+        })
+      })
+    })
+  </script>
+
+
+}
