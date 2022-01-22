@@ -44,8 +44,15 @@ namespace ShoppingSite_FrontEnd.Site.Models.Infrastructures.Repositories
 
 			Product product = query.SingleOrDefault();//單筆資料(SingleOrDefault)原因:因為前面的篩選條件是需要Products資料表中的Id需要跟Category資料表中的Id(CategoryId)一樣//所以產生出的結果只會有單筆資料
 
-
 			return product == null ? null : product.ToProductEntity();
+		}
+
+		public HotProductEntity Load()
+		{
+			IEnumerable<Product> query = _db.HotProducts
+
+			
+			return
 		}
 	}
 }

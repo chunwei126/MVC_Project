@@ -23,5 +23,12 @@ namespace ShoppingSite_FrontEnd.Site.Models.Core.Services
     public ProductEntity LoadProduct(int productId)//用LoadProduct這個動作來呼叫_repository(IProductRepository)
     =>
         _repository.Load(productId, true);//用_repository(IProductRepository)來執行Load
+
+    //public IEnumerable<ProductEntity> SearchLatestProducts()
+
+    public IEnumerable<HotProductEntity> SearchHotProducts() 
+    {
+      return _repository;
+    }
   }
 }

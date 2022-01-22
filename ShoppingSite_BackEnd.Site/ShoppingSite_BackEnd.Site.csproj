@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -9,17 +8,17 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9B49D98B-AF44-467E-A5D8-90B2981AA81A}</ProjectGuid>
+    <ProjectGuid>{E0DBBFC8-2DE8-4EC1-9917-8F10247260C4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ShoppingSite_FrontEnd.Site</RootNamespace>
-    <AssemblyName>ShoppingSite_FrontEnd.Site</AssemblyName>
+    <RootNamespace>ShoppingSite_BackEnd.Site</RootNamespace>
+    <AssemblyName>ShoppingSite_BackEnd.Site</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44319</IISExpressSSLPort>
+    <IISExpressSSLPort>44334</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -46,18 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -142,120 +133,34 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\FaqsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MembersController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Core\Interfaces\ICartRepository.cs" />
-    <Compile Include="Models\Core\Interfaces\ICartService.cs" />
-    <Compile Include="Models\Core\Interfaces\ICustomerRepository.cs" />
-    <Compile Include="Models\Core\Interfaces\IMemberRepository.cs" />
-    <Compile Include="Models\Core\Interfaces\IMemberService.cs" />
-    <Compile Include="Models\Core\Interfaces\IOrderRepository.cs" />
-    <Compile Include="Models\Core\Interfaces\IOrderService.cs" />
-    <Compile Include="Models\Core\Interfaces\IProductRepository.cs" />
-    <Compile Include="Models\Core\Interfaces\IStockRepository.cs" />
-    <Compile Include="Models\Core\Interfaces\IStockService.cs" />
-    <Compile Include="Models\Core\Services\CartMediator.cs" />
-    <Compile Include="Models\Core\Services\CartService.cs" />
-    <Compile Include="Models\Core\Services\MemberService.cs" />
-    <Compile Include="Models\Core\Services\OrderService.cs" />
-    <Compile Include="Models\Core\Services\ProductService.cs" />
-    <Compile Include="Models\Core\Services\StockService.cs" />
-    <Compile Include="Models\Dtos\CreateOrderItem.cs" />
-    <Compile Include="Models\Dtos\CreateOrderRequest.cs" />
-    <Compile Include="Models\Dtos\DeductStockInfo.cs" />
-    <Compile Include="Models\Dtos\LoginResponse.cs" />
-    <Compile Include="Models\Dtos\RegisterRequest.cs" />
-    <Compile Include="Models\Dtos\RegisterResponse.cs" />
-    <Compile Include="Models\Dtos\ReviseStockInfo.cs" />
-    <Compile Include="Models\EFModels\AppDbContext.cs" />
-    <Compile Include="Models\EFModels\Cart.cs" />
-    <Compile Include="Models\EFModels\CartItem.cs" />
-    <Compile Include="Models\EFModels\Category.cs" />
-    <Compile Include="Models\EFModels\Faq.cs" />
-    <Compile Include="Models\EFModels\HotProductVM.cs" />
-    <Compile Include="Models\EFModels\Member.cs" />
-    <Compile Include="Models\EFModels\News.cs" />
-    <Compile Include="Models\EFModels\Order.cs" />
-    <Compile Include="Models\EFModels\OrderItem.cs" />
-    <Compile Include="Models\EFModels\Product.cs" />
-    <Compile Include="Models\Entities\CartEntity.cs" />
-    <Compile Include="Models\Entities\CartItemEntity.cs" />
-    <Compile Include="Models\Entities\CartProductEntity.cs" />
-    <Compile Include="Models\Entities\CategoryEntity.cs" />
-    <Compile Include="Models\Entities\CustomerEntity.cs" />
-    <Compile Include="Models\Entities\HotProductEntity.cs" />
-    <Compile Include="Models\Entities\MemberEntity.cs" />
-    <Compile Include="Models\Entities\OrderEntity.cs" />
-    <Compile Include="Models\Entities\OrderItemEntity.cs" />
-    <Compile Include="Models\Entities\OrderProductEntity.cs" />
-    <Compile Include="Models\Entities\ProductEntity.cs" />
-    <Compile Include="Models\Entities\RegisterEntity.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\CartEFMExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\CartEntityExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\CartItemEFMExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\CartItemEntityExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\CategoryEFMExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\CreateOrderItemExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\HotProductEntityExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\MemberEFMExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\MemberEntityExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\OrderEFMExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\OrderItemExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\ProductEFMExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\ProductEntityExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\RegisterRequestExts.cs" />
-    <Compile Include="Models\Infrastructures\ExtMethods\RegisterVMExts.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\CartRepository.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\CustomerRepository.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\MemberRepository.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\OrderRepository.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\ProductRepository.cs" />
-    <Compile Include="Models\Infrastructures\Repositories\StockRepository.cs" />
-    <Compile Include="Models\UseCases\MemberCommand.cs" />
-    <Compile Include="Models\ValueObjects\RegisterResponseData.cs" />
-    <Compile Include="Models\ValueObjects\ShippingInfo.cs" />
-    <Compile Include="Models\ViewModels\CheckoutVM.cs" />
-    <Compile Include="Models\ViewModels\LoginVM.cs" />
-    <Compile Include="Models\ViewModels\ProductVM.cs" />
-    <Compile Include="Models\ViewModels\RegisterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrappage.css" />
-    <Content Include="Content\flexslider.css" />
-    <Content Include="Content\jquery.fancybox.css" />
-    <Content Include="Content\main.css" />
-    <Content Include="Content\style.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.fancybox.js" />
-    <Content Include="Scripts\jquery.flexslider-min.js" />
-    <Content Include="Scripts\jquery.scrolltotop.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\superfish.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -270,39 +175,23 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Faqs\Index.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\Members\RegisterConfirm.cshtml" />
-    <Content Include="Views\Members\Register.cshtml" />
-    <Content Include="Views\Members\Login.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Cart\Info.cshtml" />
-    <Content Include="Views\Cart\CheckoutConfirm.cshtml" />
-    <Content Include="Views\Cart\Checkout.cshtml" />
-    <Content Include="Views\Product\Cookies.cshtml" />
-    <Content Include="Views\Product\Candies.cshtml" />
-    <Content Include="Views\Product\InstantNoodles.cshtml" />
-    <Content Include="Views\Product\SoftDrinks.cshtml" />
-    <Content Include="Views\Product\HardDrinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assest\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructures\Infrastructures.csproj">
-      <Project>{1edcdf0d-b0a4-40be-885a-2001c709eb91}</Project>
-      <Name>Infrastructures</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -320,9 +209,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49547</DevelopmentServerPort>
+          <DevelopmentServerPort>61923</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44319/</IISUrl>
+          <IISUrl>https://localhost:44334/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -337,10 +226,7 @@
       <ErrorText>此專案參考這部電腦上所缺少的 NuGet 套件。請啟用 NuGet 套件還原，以下載該套件。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

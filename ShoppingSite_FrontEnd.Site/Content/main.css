@@ -932,4 +932,9 @@ section.our_client {
   .feature_box .service {
     border-bottom: 1px solid #eee;
   }
+
+  .sns {
+    display: flex;
+    justify-content: center;
+  }
 }

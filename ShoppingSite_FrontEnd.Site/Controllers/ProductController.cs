@@ -26,5 +26,35 @@ namespace ShoppingSite_FrontEnd.Site.Controllers
 			var data = _productService.SearchProducts(null, null).Select(x => x.ToVM());//SearchProducts(全部資料)Select(挑選)ToVM(讓挑選出來的資料(EFMODEL)轉換成(ToViewModel)//ViewModel為網頁個別產品所要列出的商品公式的群組
 			return View(data);//輸入資料(data)呈現畫面
 		}
+
+		public ActionResult Cookies()
+		{
+			var data = _productService.SearchProducts(4, null).Select(x => x.ToVM());
+			return View(data);
+		}
+
+		public ActionResult Candies()
+		{
+			var data = _productService.SearchProducts(3, null).Select(x => x.ToVM());
+			return View(data);
+		}
+
+		public ActionResult InstantNoodles()
+		{
+			var data = _productService.SearchProducts(5, null).Select(x => x.ToVM());
+			return View(data);
+		}
+
+		public ActionResult SoftDrinks()
+		{
+			var data = _productService.SearchProducts(6, null).Select(x => x.ToVM());
+			return View(data);
+		}
+
+		public ActionResult HardDrinks()
+		{
+			var data = _productService.SearchProducts(8, null).Select(x => x.ToVM());
+			return View(data);
+		}
 	}
 }

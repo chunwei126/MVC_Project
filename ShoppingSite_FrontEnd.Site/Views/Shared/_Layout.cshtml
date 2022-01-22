@@ -12,11 +12,27 @@
   <link href="~/Content/bootstrappage.css" rel="stylesheet" />
   <link href="~/Content/flexslider.css" rel="stylesheet" />
   <link href="~/Content/main.css" rel="stylesheet" />
+
+  <style>
+    #top-bar .user-menu li {
+      border-right: none;
+    }
+  </style>
 </head>
 <body>
   <div id="top-bar" class="container">
     <div class="row">
-      <div class="span12">
+      <div class="span4">
+        <div class="sns">
+          <ul class="user-menu">
+            <li><a href="#"><img src="~/Assest/facebook.png" alt="" /></a></li>
+            <li><a href="#"><img src="~/Assest/instagram.png" alt="" /></a></li>
+            <li><a href="#"><img src="~/Assest/line.png" alt="" /></a></li>
+            <li><a href="#"><img src="~/Assest/twitter.png" alt="" /></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="span8">
         <div class="account pull-right">
           <ul class="user-menu">
             <li>@Html.ActionLink("首頁", "Index", "Home")</li>
@@ -47,11 +63,11 @@
         <nav id="menu" class="pull-right">
           <ul>
             <li>@Html.ActionLink("所有商品", "Index", "Product")</li>
-            <li><a href="./products.html">餅乾</a></li>
-            <li><a href="./products.html">糖果</a></li>
-            <li><a href="./products.html">泡麵</a></li>
-            <li><a href="./products.html">非酒精飲料</a></li>
-            <li><a href="./products.html">酒精飲料</a></li>
+            <li>@Html.ActionLink("餅乾", "Cookies", "Product")</li>
+            <li>@Html.ActionLink("糖果", "Candies", "Product")</li>
+            <li>@Html.ActionLink("泡麵", "InstantNoodles", "Product")</li>
+            <li>@Html.ActionLink("酒精飲料", "SoftDrinks", "Product")</li>
+            <li>@Html.ActionLink("酒精飲料", "HardDrinks", "Product")</li>
           </ul>
         </nav>
       </div>
