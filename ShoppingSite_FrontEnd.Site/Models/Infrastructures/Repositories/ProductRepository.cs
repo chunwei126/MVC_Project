@@ -47,12 +47,10 @@ namespace ShoppingSite_FrontEnd.Site.Models.Infrastructures.Repositories
 			return product == null ? null : product.ToProductEntity();
 		}
 
-		public HotProductEntity Load()
+		public IEnumerable<HotProductEntity> Search()
 		{
-			IEnumerable<Product> query = _db.HotProducts
-
-			
-			return
+			IEnumerable<HotProduct> query = _db.HotProducts;
+			return query.Select(x => x.ToProductEntity());
 		}
 	}
 }

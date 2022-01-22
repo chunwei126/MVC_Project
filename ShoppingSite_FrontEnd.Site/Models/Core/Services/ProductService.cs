@@ -28,7 +28,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.Core.Services
 
     public IEnumerable<HotProductEntity> SearchHotProducts() 
     {
-      return _repository;
+      return _repository.Search();
     }
   }
 }

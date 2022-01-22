@@ -11,6 +11,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
+            HotProducts = new HashSet<HotProduct>();
             Products = new HashSet<Product>();
         }
 
@@ -21,6 +22,9 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
         public string Name { get; set; }
 
         public int DisplayOrder { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotProduct> HotProducts { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }

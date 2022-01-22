@@ -1,27 +1,152 @@
 ﻿@model IEnumerable<ShoppingSite_FrontEnd.Site.Models.EFModels.Faq>
 
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
 
 <style>
-    .faqList {
-        list-style-type: none;
+  .faq-contianer .faq-item {
+    background-color: #ffffff;
+    margin-bottom: 3%;
+  }
+
+    .faq-contianer .faq-item .faq-question {
+      position: relative;
+      cursor: pointer;
     }
-    .faqItem {
-        margin-bottom: 30px;
+
+      .faq-contianer .faq-item .faq-question .faq-question-text {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .faq-contianer .faq-item .faq-question .faq-openIcon {
+        width: 25px;
+        height: 25px;
+        text-decoration: none;
+        border-radius: 50%;
+        padding: 0.5%;
+        background-color: #9F1213;
+        color: #ffffff;
+        font-weight: bold;
+        position: absolute;
+        font-size: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        top: 40%;
+        right: 2%;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+      }
+
+      .faq-contianer .faq-item .faq-question .faq-close {
+        background-color: #9F1213;
+        color: #ffffff;
+        font-size: 20px;
+      }
+
+    .faq-contianer .faq-item .faq-line {
+      background-color: #9F1213;
+      border: none;
     }
+
+    .faq-contianer .faq-item .faq-answer {
+      display: none;
+    }
+
+      .faq-contianer .faq-item .faq-answer .faq-answer-text {
+        line-height: 25px;
+        font-size: 20px;
+      }
+
+  .faq-contianer .faq-lastItem {
+    margin-bottom: 0;
+  }
 </style>
 
 
-<ul class="faqList">
-    <h2>常見問題</h2>
-@foreach (var item in Model)
-{
-    <div class="faqItem">
-        <li>@Html.DisplayFor(modelItem => item.Question)</li>
-        <li>@Html.DisplayFor(modelItem => item.Answer)</li>
+
+<h2>常見問題</h2>
+
+<div class="faq-contianer">
+  @foreach (var item in Model)
+  {
+    <div class="faq-item">
+      <div class="faq-question">
+        <p class="faq-question-text">@Html.DisplayFor(modelItem => item.Question)</p>
+        <span class="faq-openIcon">＋</span>
+      </div>
+      <hr size="4" class="faq-line" />
+      <div class="faq-answer">
+        <p class="faq-answer-text">
+          @Html.DisplayFor(modelItem => item.Answer)
+        </p>
+      </div>
     </div>
+  }
+</div>
+
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+  <script>
+    $(document).ready(function () {
+      $(".faq-question").click(function () {
+        // answer 收合
+        $(this)
+          .parent()
+          .find(".faq-answer")
+          .stop()
+          .slideToggle();
+
+        if (
+          $(this)
+            .find(".faq-openIcon")
+            .hasClass("faq-close")
+        ) {
+          //適用於預設為打開的問題
+          console.log("close");
+          $(this)
+            .find(".faq-openIcon")
+            .text("＋");
+          $(this)
+            .find(".faq-openIcon")
+            .removeClass("faq-close");
+        } else {
+          console.log("open");
+          $(this)
+            .find(".faq-openIcon")
+            .text("―");
+          $(this)
+            .find(".faq-openIcon")
+            .addClass("faq-close");
+        }
+
+        // 自己以外的 answer 隱藏起來
+        $(this)
+          .parent()
+          .siblings()
+          .find(".faq-answer")
+          .slideUp();
+        $(this)
+          .parent()
+          .siblings()
+          .find(".faq-openIcon")
+          .text("＋");
+        $(this)
+          .parent()
+          .siblings()
+          .find(".faq-openIcon")
+          .removeClass("faq-close");
+      });
+    });
+  </script>
 }
-</ul>
 

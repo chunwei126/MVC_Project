@@ -24,7 +24,7 @@ namespace ShoppingSite_FrontEnd.Site.Controllers
 		public ActionResult Index()
 		{
 			var data = _productService.SearchHotProducts().Select(x => x.ToVM());
-			return View();
+			return View(data);
 		}
 
 		public ActionResult About()

@@ -16,6 +16,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
 		public virtual DbSet<Cart> Carts { get; set; }
 		public virtual DbSet<Category> Categories { get; set; }
 		public virtual DbSet<Faq> Faqs { get; set; }
+		public virtual DbSet<HotProduct> HotProducts { get; set; }
 		public virtual DbSet<Member> Members { get; set; }
 		public virtual DbSet<News> News { get; set; }
 		public virtual DbSet<OrderItem> OrderItems { get; set; }
@@ -24,6 +25,11 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
+			modelBuilder.Entity<Category>()
+					.HasMany(e => e.HotProducts)
+					.WithRequired(e => e.Category)
+					.WillCascadeOnDelete(false);
+
 			modelBuilder.Entity<Category>()
 					.HasMany(e => e.Products)
 					.WithRequired(e => e.Category)
@@ -63,7 +69,5 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
 					.WithRequired(e => e.Product)
 					.WillCascadeOnDelete(false);
 		}
-
-		public System.Data.Entity.DbSet<ShoppingSite_FrontEnd.Site.Models.ViewModels.RegisterVM> RegisterVMs { get; set; }
 	}
 }

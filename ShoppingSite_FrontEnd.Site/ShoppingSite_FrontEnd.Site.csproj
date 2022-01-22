@@ -179,7 +179,7 @@
     <Compile Include="Models\EFModels\CartItem.cs" />
     <Compile Include="Models\EFModels\Category.cs" />
     <Compile Include="Models\EFModels\Faq.cs" />
-    <Compile Include="Models\EFModels\HotProductVM.cs" />
+    <Compile Include="Models\EFModels\HotProduct.cs" />
     <Compile Include="Models\EFModels\Member.cs" />
     <Compile Include="Models\EFModels\News.cs" />
     <Compile Include="Models\EFModels\Order.cs" />
@@ -203,6 +203,7 @@
     <Compile Include="Models\Infrastructures\ExtMethods\CartItemEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\CategoryEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\CreateOrderItemExts.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\HotProductEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\HotProductEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\MemberEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\MemberEntityExts.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Models\ValueObjects\RegisterResponseData.cs" />
     <Compile Include="Models\ValueObjects\ShippingInfo.cs" />
     <Compile Include="Models\ViewModels\CheckoutVM.cs" />
+    <Compile Include="Models\ViewModels\HotProductVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
     <Compile Include="Models\ViewModels\ProductVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />

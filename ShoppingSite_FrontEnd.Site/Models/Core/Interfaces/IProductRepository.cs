@@ -24,5 +24,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.Core.Interfaces
 		/// <param name="status"></param>
 		/// <returns></returns>
 		ProductEntity Load(int productId, bool? status);
+
+		IEnumerable<HotProductEntity> Search();
 	}
 }
