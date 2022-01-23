@@ -1,14 +1,22 @@
 ﻿@model IEnumerable<ShoppingSite_FrontEnd.Site.Models.ViewModels.ProductVM>
+@using PagedList.Mvc;
+@using PagedList;
 
 <style>
   .productList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between
+    justify-content: space-between;
+    list-style: none;
   }
 
   .productList_item {
-    width: 28%
+    width: 381.66px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-around;
   }
 </style>
 
@@ -35,6 +43,8 @@
     }
   </ul>
 </div>
+
+@Html.PagedListPager((IPagedList)Model, x => Url.Action("Index", new { pageNumber = x }))
 
 @section Scripts {
   @Scripts.Render("~/bundles/jqueryval")

@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace ShoppingSite_FrontEnd.Site.Controllers
 {
@@ -21,10 +23,11 @@ namespace ShoppingSite_FrontEnd.Site.Controllers
 			_productService = new ProductService(repo);//IProductReprository(媒介)->ProductService
 		}
 
-		public ActionResult Index()
+		public ActionResult Index(int pageNumber = 1, int pageSize = 3)
 		{
-			var data = _productService.SearchProducts(null, null).Select(x => x.ToVM());//SearchProducts(全部資料)Select(挑選)ToVM(讓挑選出來的資料(EFMODEL)轉換成(ToViewModel)//ViewModel為網頁個別產品所要列出的商品公式的群組
-			return View(data);//輸入資料(data)呈現畫面
+			var data = _productService.SearchProducts(null, null).Select(x => x.ToVM());
+			var userPagedList = data.OrderBy(x => x.Id).ToPagedList(pageNumber, pageSize);
+			return View(userPagedList);
 		}
 
 		public ActionResult Cookies()
