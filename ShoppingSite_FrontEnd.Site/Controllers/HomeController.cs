@@ -3,6 +3,7 @@ using ShoppingSite_FrontEnd.Site.Models.Core.Services;
 using ShoppingSite_FrontEnd.Site.Models.EFModels;
 using ShoppingSite_FrontEnd.Site.Models.Infrastructures.ExtMethods;
 using ShoppingSite_FrontEnd.Site.Models.Infrastructures.Repositories;
+using ShoppingSite_FrontEnd.Site.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,14 @@ namespace ShoppingSite_FrontEnd.Site.Controllers
 
 		public ActionResult Index()
 		{
-			var data = _productService.SearchHotProducts().Select(x => x.ToVM());
+			var latestProductsData = _productService.SearchLatestNewsProducts(null, null).Select(x => x.ToVM());
+
+			var hotProductsData = _productService.SearchHotProducts().Select(x => x.ToHotProductVM());
+
+			var data = new SliderVM();
+			data.LatestProductsData = latestProductsData;
+			data.HotProductsData = hotProductsData;
+
 			return View(data);
 		}
 

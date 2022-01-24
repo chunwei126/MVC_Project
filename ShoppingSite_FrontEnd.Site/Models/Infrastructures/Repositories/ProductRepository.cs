@@ -30,8 +30,8 @@ namespace ShoppingSite_FrontEnd.Site.Models.Infrastructures.Repositories
 
 			return query.Select(x => x.ToProductEntity());//把EEmodel類型(query)的檔案轉換成Entity類型的檔案
 		}
-		
-		
+
+
 		public ProductEntity Load(int productId, bool? status)//Load加載
 		{
 			IEnumerable<Product> query = _db.Products//資料(query)是來自於資料庫(_db)的Product的資料表(Produts)
@@ -51,6 +51,18 @@ namespace ShoppingSite_FrontEnd.Site.Models.Infrastructures.Repositories
 		{
 			IEnumerable<HotProduct> query = _db.HotProducts;
 			return query.Select(x => x.ToProductEntity());
+		}
+
+		public IEnumerable<ProductEntity> SearchLatestNews(int? categoryId, string productName, bool? status)
+		{
+
+			IEnumerable<Product> aaa = _db.Products;
+			if (categoryId.HasValue) aaa = aaa.Where(x => x.CategoryId == categoryId);
+			if (!string.IsNullOrEmpty(productName)) aaa = aaa.Where(x => x.Name.Contains(productName));
+			if (status.HasValue) aaa = aaa.Where(x => x.Status == status);
+			aaa = aaa.OrderByDescending(x => x.CreateTime).Take(8);
+
+			return aaa.Select(x => x.ToProductEntity());
 		}
 	}
 }

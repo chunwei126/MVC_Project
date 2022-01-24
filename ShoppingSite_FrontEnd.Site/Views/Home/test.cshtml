@@ -1,6 +1,6 @@
 ﻿@using ShoppingSite_FrontEnd.Site.Models.ViewModels;
 
-@model ShoppingSite_FrontEnd.Site.Models.ViewModels.SliderVM
+@model IEnumerable<ShoppingSite_FrontEnd.Site.Models.ViewModels.SliderVM>;
 
 @{
   ViewBag.Title = "Home Page";
@@ -132,44 +132,75 @@
             <div class="carousel-inner">
               <div class="active item">
                 <ul class="thumbnails">
-                  @{List<ProductVM> latestProductsData = new List<ProductVM>();}
-                  @{times = 1;}
-                  @foreach (var item in Model.LatestProductsData)
-                  {
-                    if (times <= 4)
-                    {
-                      <li class="span3">
-                        <div class="product-box">
-                          <span class="sale_tag"></span>
-                          <p><a href="product_detail.html"><img src="~/Assest/ProductImage.jpg" alt="" /></a></p>
-                          <a href="product_detail.html" class="title">@Html.DisplayFor(modelItem => item.Name)</a><br />
-                          <a href="products.html" class="category">@Html.DisplayFor(modelItem => item.Category)</a>
-                          <p class="price">$@Html.DisplayFor(modelItem => item.Price)</p>
-                        </div>
-                      </li>
-
-                      times += 1;
-                    }
-                    else
-                    {
-                      latestProductsData.Add(item);
-                    }
-                  }
+                  <li class="span3">
+                    <div class="product-box">
+                      <span class="sale_tag"></span>
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware2.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">Ut wisi enim ad</a><br />
+                      <a href="products.html" class="category">Commodo consequat</a>
+                      <p class="price">$25.50</p>
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="product-box">
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware1.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">Quis nostrud exerci tation</a><br />
+                      <a href="products.html" class="category">Quis nostrud</a>
+                      <p class="price">$17.55</p>
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="product-box">
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware6.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">Know exactly turned</a><br />
+                      <a href="products.html" class="category">Quis nostrud</a>
+                      <p class="price">$25.30</p>
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="product-box">
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware5.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">You think fast</a><br />
+                      <a href="products.html" class="category">World once</a>
+                      <p class="price">$25.60</p>
+                    </div>
+                  </li>
                 </ul>
               </div>
               <div class="item">
                 <ul class="thumbnails">
-                  @foreach (var item in latestProductsData)
-                  {
-                    <li class="span3">
-                      <div class="product-box">
-                        <p><a href="product_detail.html"><img src="~/Assest/ProductImage.jpg" alt="" /></a></p>
-                        <a href="product_detail.html" class="title">@Html.DisplayFor(modelItem => item.Name)</a><br />
-                        <a href="products.html" class="category">@Html.DisplayFor(modelItem => item.Category)</a>
-                        <p class="price">$@Html.DisplayFor(modelItem => item.Price)</p>
-                      </div>
-                    </li>
-                  }
+                  <li class="span3">
+                    <div class="product-box">
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware4.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">Know exactly</a><br />
+                      <a href="products.html" class="category">Quis nostrud</a>
+                      <p class="price">$45.50</p>
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="product-box">
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware3.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">Ut wisi enim ad</a><br />
+                      <a href="products.html" class="category">Commodo consequat</a>
+                      <p class="price">$33.50</p>
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="product-box">
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware2.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">You think water</a><br />
+                      <a href="products.html" class="category">World once</a>
+                      <p class="price">$45.30</p>
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="product-box">
+                      <p><a href="product_detail.html"><img src="themes/images/cloth/bootstrap-women-ware1.jpg" alt="" /></a></p>
+                      <a href="product_detail.html" class="title">Quis nostrud exerci</a><br />
+                      <a href="products.html" class="category">Quis nostrud</a>
+                      <p class="price">$25.20</p>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -252,7 +283,7 @@
       $('.popupBg').click(function () {
         $('.popupBg').fadeOut(1000);
       })
-
     });
   </script>
 }
+

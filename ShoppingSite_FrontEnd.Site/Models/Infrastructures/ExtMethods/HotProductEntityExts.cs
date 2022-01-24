@@ -10,7 +10,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.Infrastructures.ExtMethods
 {
 	public static class HotProductEntityExts
 	{
-    public static HotProductVM ToVM(this HotProductEntity source)
+    public static HotProductVM ToHotProductVM(this HotProductEntity source)
           => new HotProductVM
           {
             Id = source.Id,

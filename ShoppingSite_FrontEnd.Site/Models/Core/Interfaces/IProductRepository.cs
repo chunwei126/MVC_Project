@@ -26,5 +26,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.Core.Interfaces
 		ProductEntity Load(int productId, bool? status);
 
 		IEnumerable<HotProductEntity> Search();
+
+		IEnumerable<ProductEntity> SearchLatestNews(int? categoryId, string productName, bool? status);
 	}
 }
