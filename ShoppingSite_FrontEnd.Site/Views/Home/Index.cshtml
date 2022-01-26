@@ -38,6 +38,12 @@
     font-weight: bold;
     font-size: 40px;
   }
+
+  .work {
+    list-style-type: none;
+    margin: 0 auto;
+  }
+
 </style>
 
 <section class="homepage-slider" id="home-slider">
@@ -181,8 +187,13 @@
           <div class="service">
             <div class="responsive">
               <img src="/Assest/feature_img_2.png" alt="" />
-              <h4>MODERN <strong>DESIGN</strong></h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+              <h4>組長 <strong>陳俊諺</strong></h4>
+              <ul class="work">
+                <li>前台套版</li>
+                <li>前台會員模組</li>
+                <li>前台商品模組</li>
+                <li>前台投票模組</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -190,8 +201,12 @@
           <div class="service">
             <div class="customize">
               <img src="/Assest/feature_img_1.png" alt="" />
-              <h4>FREE <strong>SHIPPING</strong></h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+              <h4>組員 <strong>歐承翰</strong></h4>
+              <ul class="work">
+                <li>前台商品模組</li>
+                <li>前台購物車模組</li>
+                <li>前台投票模組</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -199,8 +214,12 @@
           <div class="service">
             <div class="support">
               <img src="/Assest/feature_img_3.png" alt="" />
-              <h4>24/7 LIVE <strong>SUPPORT</strong></h4>
-              <p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+              <h4>組員 <strong>吳婷喬</strong></h4>
+              <ul class="work">
+                <li>後台商品模組</li>
+                <li>Word製作</li>
+                <li>PowerPoint製作</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -209,7 +228,7 @@
   </div>
 </section>
 <section class="our_client">
-  <h4 class="title"><span class="text">Manufactures</span></h4>
+  <h4 class="title"><span class="text">相關廠商</span></h4>
   <div class="row">
     <div class="span2">
       <a href="#"><img alt="" src="/Assest/14.png"></a>
@@ -245,12 +264,12 @@
     $(document).ready(function () {
       //載入網頁後的3秒開啟
       setTimeout(function () {
-        $('.popupBg').fadeIn(1500);
+        $('.popupBg').fadeIn();
       }, 3000);
 
       //手動關閉
       $('.popupBg').click(function () {
-        $('.popupBg').fadeOut(1000);
+        $('.popupBg').fadeOut();
       })
 
     });

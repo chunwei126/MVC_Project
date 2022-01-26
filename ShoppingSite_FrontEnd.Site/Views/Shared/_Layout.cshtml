@@ -38,10 +38,11 @@
             <li>@Html.ActionLink("首頁", "Index", "Home")</li>
             <li>@Html.ActionLink("最新消息", "Index", "News")</li>
             <li>@Html.ActionLink("常見問題", "Index", "Faqs")</li>
+            <li>@Html.ActionLink("商品投票", "Index", "Polls")</li>
             @{
               if (User.Identity.IsAuthenticated)
               {
-                <li><a href="/Members/Index/">Hi! @(User.Identity.Name)</a></li>
+                <li>Hi! @(User.Identity.Name)</li>
                 <li>@Html.ActionLink("登出", "Logout", "Members")</li>
                 <li><a href="/Cart/Info/"><i class="fas fa-shopping-cart"></i>購物車</a></li>
               }

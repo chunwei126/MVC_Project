@@ -21,12 +21,19 @@ namespace ShoppingSite_FrontEnd.Site.Models.EFModels
 		public virtual DbSet<News> News { get; set; }
 		public virtual DbSet<OrderItem> OrderItems { get; set; }
 		public virtual DbSet<Order> Orders { get; set; }
+		public virtual DbSet<Poll> Polls { get; set; }
 		public virtual DbSet<Product> Products { get; set; }
+		public virtual DbSet<Recommendation> Recommendations { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Category>()
 					.HasMany(e => e.HotProducts)
+					.WithRequired(e => e.Category)
+					.WillCascadeOnDelete(false);
+
+			modelBuilder.Entity<Category>()
+					.HasMany(e => e.Polls)
 					.WithRequired(e => e.Category)
 					.WillCascadeOnDelete(false);
 

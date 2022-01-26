@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ShoppingSite_FrontEnd.Site.Models.ViewModels.PollVM>
+
+<table class="table">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Name)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Category)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Description)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Price)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.ProductImage)
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.Name)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Category)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Description)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Price)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.ProductImage)
+      </td>
+      <td>
+        <button class="btn btn-sm btn-success addQty glyphicon-plus" data-id="@item.Id" data-votes="@item.Votes">認同+1</button>
+      </td>
+    </tr>
+  }
+</table>
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+  <script>
+    $(document).ready(function () {
+
+      if (getCookie("poll") != null) {
+        alert("您已投過票! 請勿重複投票")
+        location.href = '/Polls/Index/';
+      }
+
+      $(".addQty").each(function () {
+        $(this).on("click", function () {
+          var self = $(this);
+          var productId = self.attr("data-id")
+
+          var qty = self.attr("data-votes");
+          qty = parseInt(qty) + 1;
+
+          document.cookie = 'poll=true; max-age=2592000';
+
+          $.get("/Polls/UpdateVote?productId=" + productId + "&qty=" + qty, null, function (result) {
+            alert("感謝您投下神聖的一票!");
+            location.href = '/Polls/Index/';
+          })
+
+        })
+      })
+    })
+  </script>
+}

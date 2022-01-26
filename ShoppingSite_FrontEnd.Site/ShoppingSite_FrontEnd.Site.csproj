@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -153,7 +156,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PollsController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RecommendationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +169,7 @@
     <Compile Include="Models\Core\Interfaces\IMemberService.cs" />
     <Compile Include="Models\Core\Interfaces\IOrderRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IOrderService.cs" />
+    <Compile Include="Models\Core\Interfaces\IPollRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IProductRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IStockRepository.cs" />
     <Compile Include="Models\Core\Interfaces\IStockService.cs" />
@@ -171,6 +177,7 @@
     <Compile Include="Models\Core\Services\CartService.cs" />
     <Compile Include="Models\Core\Services\MemberService.cs" />
     <Compile Include="Models\Core\Services\OrderService.cs" />
+    <Compile Include="Models\Core\Services\PollService.cs" />
     <Compile Include="Models\Core\Services\ProductService.cs" />
     <Compile Include="Models\Core\Services\StockService.cs" />
     <Compile Include="Models\Dtos\CreateOrderItem.cs" />
@@ -190,7 +197,9 @@
     <Compile Include="Models\EFModels\News.cs" />
     <Compile Include="Models\EFModels\Order.cs" />
     <Compile Include="Models\EFModels\OrderItem.cs" />
+    <Compile Include="Models\EFModels\Poll.cs" />
     <Compile Include="Models\EFModels\Product.cs" />
+    <Compile Include="Models\EFModels\Recommendation.cs" />
     <Compile Include="Models\Entities\CartEntity.cs" />
     <Compile Include="Models\Entities\CartItemEntity.cs" />
     <Compile Include="Models\Entities\CartProductEntity.cs" />
@@ -201,6 +210,7 @@
     <Compile Include="Models\Entities\OrderEntity.cs" />
     <Compile Include="Models\Entities\OrderItemEntity.cs" />
     <Compile Include="Models\Entities\OrderProductEntity.cs" />
+    <Compile Include="Models\Entities\PollEntity.cs" />
     <Compile Include="Models\Entities\ProductEntity.cs" />
     <Compile Include="Models\Entities\RegisterEntity.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\CartEFMExts.cs" />
@@ -215,6 +225,8 @@
     <Compile Include="Models\Infrastructures\ExtMethods\MemberEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\OrderEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\OrderItemExts.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\PollEFMExts.cs" />
+    <Compile Include="Models\Infrastructures\ExtMethods\PollEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\ProductEFMExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\ProductEntityExts.cs" />
     <Compile Include="Models\Infrastructures\ExtMethods\RegisterRequestExts.cs" />
@@ -223,14 +235,17 @@
     <Compile Include="Models\Infrastructures\Repositories\CustomerRepository.cs" />
     <Compile Include="Models\Infrastructures\Repositories\MemberRepository.cs" />
     <Compile Include="Models\Infrastructures\Repositories\OrderRepository.cs" />
+    <Compile Include="Models\Infrastructures\Repositories\PollRepository.cs" />
     <Compile Include="Models\Infrastructures\Repositories\ProductRepository.cs" />
     <Compile Include="Models\Infrastructures\Repositories\StockRepository.cs" />
     <Compile Include="Models\UseCases\MemberCommand.cs" />
+    <Compile Include="Models\ValueObjects\ModelChartJs.cs" />
     <Compile Include="Models\ValueObjects\RegisterResponseData.cs" />
     <Compile Include="Models\ValueObjects\ShippingInfo.cs" />
     <Compile Include="Models\ViewModels\CheckoutVM.cs" />
     <Compile Include="Models\ViewModels\HotProductVM.cs" />
     <Compile Include="Models\ViewModels\LoginVM.cs" />
+    <Compile Include="Models\ViewModels\PollVM.cs" />
     <Compile Include="Models\ViewModels\ProductVM.cs" />
     <Compile Include="Models\ViewModels\RegisterVM.cs" />
     <Compile Include="Models\ViewModels\SliderVM.cs" />
@@ -240,6 +255,8 @@
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrappage.css" />
+    <Content Include="Content\Chart.css" />
+    <Content Include="Content\Chart.min.css" />
     <Content Include="Content\flexslider.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\main.css" />
@@ -251,6 +268,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -294,6 +313,10 @@
     <Content Include="Views\Product\SoftDrinks.cshtml" />
     <Content Include="Views\Product\HardDrinks.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Recommendations\Create.cshtml" />
+    <Content Include="Views\Polls\Index.cshtml" />
+    <Content Include="Views\Polls\Vote.cshtml" />
+    <Content Include="Views\Polls\ErrDevBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
