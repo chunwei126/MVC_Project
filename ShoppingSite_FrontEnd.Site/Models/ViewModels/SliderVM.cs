@@ -7,11 +7,6 @@ namespace ShoppingSite_FrontEnd.Site.Models.ViewModels
 {
 	public class SliderVM 
 	{
-		//public SliderVM(IEnumerable<ProductVM> latestProductsData, IEnumerable<HotProductVM> hotProductsData)
-		//{
-		//	latestProductsData = this.LatestProductsData;
-		//	hotProductsData = this.HotProductsData;
-		//}
 
 		public IEnumerable<ProductVM> LatestProductsData  { get; set; }
 

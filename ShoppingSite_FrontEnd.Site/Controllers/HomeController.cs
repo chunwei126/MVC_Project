@@ -28,9 +28,13 @@ namespace ShoppingSite_FrontEnd.Site.Controllers
 
 			var hotProductsData = _productService.SearchHotProducts().Select(x => x.ToHotProductVM());
 
-			var data = new SliderVM();
-			data.LatestProductsData = latestProductsData;
-			data.HotProductsData = hotProductsData;
+			var data = new SliderVM()
+			{
+				LatestProductsData = latestProductsData,
+				HotProductsData = hotProductsData
+			};
+			//data.LatestProductsData = latestProductsData;
+			//data.HotProductsData = hotProductsData;
 
 			return View(data);
 		}

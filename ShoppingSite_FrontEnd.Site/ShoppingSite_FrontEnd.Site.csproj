@@ -293,7 +293,6 @@
     <Content Include="Views\Product\InstantNoodles.cshtml" />
     <Content Include="Views\Product\SoftDrinks.cshtml" />
     <Content Include="Views\Product\HardDrinks.cshtml" />
-    <Content Include="Views\Home\test.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

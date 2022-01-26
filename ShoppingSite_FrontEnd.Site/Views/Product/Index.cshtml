@@ -23,7 +23,6 @@
     .pagination li {
       padding: 5px;
     }
-
 </style>
 
 <div class="container">
@@ -41,10 +40,10 @@
         <br />
         <span>@Html.DisplayFor(modelItem => item.Price)</span>
 
-        @if (User.Identity.IsAuthenticated)
-        {
-          <button class="add2cart btn btn-primary btn-sm" data-id="@item.Id">加入購物車</button>
-        }
+        @*@if (User.Identity.IsAuthenticated)
+          {*@
+        <button class="add2cart btn btn-primary btn-sm" data-id="@item.Id">加入購物車</button>
+        @*}*@
       </li>
     }
   </ul>
@@ -60,11 +59,15 @@
         $(this).on("click", function () {
           var self = $(this);
           var productId = self.attr("data-id")
-
-          // ajax 送出 request
-          $.get("/Cart/AddItem?productId=" + productId, null, function (result) {
-            alert("已加入購物車");
-          })
+          var memberCookie = getCookie("membershipdemo")
+          if (memberCookie == null) {
+            location.href = '/Members/Login/';
+          } else {
+            // ajax 送出 request
+            $.get("/Cart/AddItem?productId=" + productId, null, function (result) {
+              alert("已加入購物車");
+            })
+          }
         })
       })
     })

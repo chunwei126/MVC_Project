@@ -37,6 +37,7 @@ namespace ShoppingSite_FrontEnd.Site.Controllers
 		// GET: Cart/AddItem
 		public ActionResult AddItem(int productId)
 		{
+
 			cartService.AddItem(CustomerAccount, productId, 1);
 
 			return new EmptyResult();
