@@ -1,49 +1,38 @@
 ﻿@model IEnumerable<ShoppingSite_FrontEnd.Site.Models.ViewModels.ProductVM>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stock)
-        </th>
-        <th></th>
-    </tr>
+<style>
+  .productList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+  }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-    </tr>
-}
+  .productList_item {
+    width: 381.66px;
+  }
+</style>
 
-</table>
+<div class="container">
+  <ul class="productList">
+    @foreach (var item in Model)
+    {
+      <li class="productList_item">
+        <img src="~/Assest/@Html.DisplayFor(modelItem => item.ProductImage)">
+        <h3>
+          @Html.DisplayFor(modelItem => item.Name)
+        </h3>
+        <p>
+          @Html.DisplayFor(modelItem => item.Description)
+        </p>
+        <br />
+        <span>$@Html.DisplayFor(modelItem => item.Price)</span>
+
+        @*@if (User.Identity.IsAuthenticated)
+          {*@
+        <button class="add2cart btn btn-primary btn-sm" data-id="@item.Id">加入購物車</button>
+        @*}*@
+      </li>
+    }
+  </ul>
+</div>

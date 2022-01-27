@@ -30,7 +30,7 @@
     @foreach (var item in Model)
     {
       <li class="productList_item">
-        <img src="~/Assest/ProductImage.jpg">
+        <img src="~/Assest/@Html.DisplayFor(modelItem => item.ProductImage)">
         <h3>
           @Html.DisplayFor(modelItem => item.Name)
         </h3>
@@ -38,7 +38,7 @@
           @Html.DisplayFor(modelItem => item.Description)
         </p>
         <br />
-        <span>@Html.DisplayFor(modelItem => item.Price)</span>
+        <span>$@Html.DisplayFor(modelItem => item.Price)</span>
 
         @*@if (User.Identity.IsAuthenticated)
           {*@

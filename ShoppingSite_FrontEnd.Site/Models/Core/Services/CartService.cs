@@ -100,6 +100,7 @@ namespace ShoppingSite_FrontEnd.Site.Models.Core.Services
 									{
 										ProductId = x.Product.Id,
 										ProductName = x.Product.Name,
+										Price = x.Product.Price,	
 										Qty = x.Qty
 									})
 				.ToList();

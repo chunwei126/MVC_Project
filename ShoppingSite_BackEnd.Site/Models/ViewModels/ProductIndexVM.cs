@@ -21,6 +21,7 @@ namespace ShoppingSite_BackEnd.Site.Models.ViewModels
     [StringLength(50)]
     public string Name { get; set; }
 
+    [Display(Name = "商品描述")]
     public string Description { get; set; }
 
     [Display(Name = "價格")]

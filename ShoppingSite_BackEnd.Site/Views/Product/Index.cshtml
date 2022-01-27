@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ShoppingSite_BackEnd.Site.Models.ViewModels.ProductIndexVM>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("新增商品", "Create")
 </p>
 
 <form class="form-inline" action="" method="get">
@@ -17,64 +17,59 @@
 </form>
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BriefDescription)
-        </th>
-        <th></th>
-    </tr>
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.Id)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Name)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.BriefDescription)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Price)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.Status)
+    </th>
+    @*<th>
+          @Html.DisplayNameFor(model => model.ProductImage)
+      </th>*@
+    <th>
+      @Html.DisplayNameFor(model => model.Stock)
+    </th>
+    <th></th>
+  </tr>
 
-@foreach (var item in Model) {
+  @foreach (var item in Model)
+  {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Id)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Name)
+      </td>
+      <th>
+        @Html.DisplayFor(modelItem => item.BriefDescription)
+      </th>
+      <td>
+        @Html.DisplayFor(modelItem => item.Price)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Status)
+      </td>
+      @*<td>
             @Html.DisplayFor(modelItem => item.ProductImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BriefDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-        </td>
+        </td>*@
+      <td>
+        @Html.DisplayFor(modelItem => item.Stock)
+      </td>
+      <td>
+        @Html.ActionLink("編輯商品", "Edit", new { id = item.Id })
+      </td>
     </tr>
-}
+  }
 
 </table>

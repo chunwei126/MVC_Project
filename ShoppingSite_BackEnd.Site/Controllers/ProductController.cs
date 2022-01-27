@@ -27,7 +27,8 @@ namespace ShoppingSite_BackEnd.Site.Controllers
 		{
 			var data = repository
 					.Search(name, description)
-					.Select(x => x.ToProductIndexVM());
+					.Select(x => x.ToProductIndexVM())
+					.OrderBy(x1 => x1.Id);
 
 			ViewBag.search_name = name;
 			ViewBag.search_description = description;

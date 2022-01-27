@@ -50,8 +50,8 @@
         @Html.DisplayFor(modelItem => item.SubTotal)
       </td>
       <td>
-        <button class="btn btn-sm btn-danger delQty glyphicon-minus" data-id="@item.Product.Id" data-qty="@item.Qty"></button>
-        <button class="btn btn-sm btn-success addQty glyphicon-plus" data-id="@item.Product.Id" data-qty="@item.Qty"></button>
+        <button class="btn btn-sm btn-danger delQty glyphicon-minus" data-id="@item.Product.Id" data-qty="@item.Qty">-</button>
+        <button class="btn btn-sm btn-success addQty glyphicon-plus" data-id="@item.Product.Id" data-qty="@item.Qty">+</button>
       </td>
     </tr>
   }

@@ -90,7 +90,7 @@
                       <li class="span3">
                         <div class="product-box">
                           <span class="sale_tag"></span>
-                          <p><img src="~/Assest/ProductImage.jpg" alt="" /></p>
+                          <p><img src="~/Assest/@Html.DisplayFor(modelItem => item.ProductImage)" alt="" /></p>
                           <a href="product_detail.html" class="title">@Html.DisplayFor(modelItem => item.Name)</a><br />
                           <a href="products.html" class="category">@Html.DisplayFor(modelItem => item.Category)</a>
                           <p class="price">$@Html.DisplayFor(modelItem => item.Price)</p>
@@ -112,7 +112,7 @@
                   {
                     <li class="span3">
                       <div class="product-box">
-                        <p><img src="~/Assest/ProductImage.jpg" alt="" /></p>
+                        <p><img src="~/Assest/@Html.DisplayFor(modelItem => item.ProductImage)" alt="" /></p>
                         <a href="product_detail.html" class="title">@Html.DisplayFor(modelItem => item.Name)</a><br />
                         <a href="products.html" class="category">@Html.DisplayFor(modelItem => item.Category)</a>
                         <p class="price">$@Html.DisplayFor(modelItem => item.Price)</p>
@@ -147,7 +147,7 @@
                       <li class="span3">
                         <div class="product-box">
                           <span class="sale_tag"></span>
-                          <p><a href="product_detail.html"><img src="~/Assest/ProductImage.jpg" alt="" /></a></p>
+                          <p><img src="~/Assest/@Html.DisplayFor(modelItem => item.ProductImage)" alt="" /></p>
                           <a href="product_detail.html" class="title">@Html.DisplayFor(modelItem => item.Name)</a><br />
                           <a href="products.html" class="category">@Html.DisplayFor(modelItem => item.Category)</a>
                           <p class="price">$@Html.DisplayFor(modelItem => item.Price)</p>
@@ -169,7 +169,7 @@
                   {
                     <li class="span3">
                       <div class="product-box">
-                        <p><a href="product_detail.html"><img src="~/Assest/ProductImage.jpg" alt="" /></a></p>
+                        <p><img src="~/Assest/@Html.DisplayFor(modelItem => item.ProductImage)" alt="" /></p>
                         <a href="product_detail.html" class="title">@Html.DisplayFor(modelItem => item.Name)</a><br />
                         <a href="products.html" class="category">@Html.DisplayFor(modelItem => item.Category)</a>
                         <p class="price">$@Html.DisplayFor(modelItem => item.Price)</p>
